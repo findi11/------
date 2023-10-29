@@ -5,9 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] Humanitrian UA </title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/maim.css" />
+    <link rel="stylesheet" href="~/css/main.css" />
 </head>
 <body>
+    <header class="header">
+        <div class="app-container">
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a class="nav-link" href="/all-container">Активні збори</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/%D0%A2%D1%80%D0%B8%D0%B7%D1%83%D0%B1.svg/1200px-%D0%A2%D1%80%D0%B8%D0%B7%D1%83%D0%B1.svg.png" alt="Alternate Text" /></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/start-container">Розпочати збір</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
     @RenderBody()
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
