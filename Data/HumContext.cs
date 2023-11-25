@@ -12,10 +12,16 @@ namespace Курсач.Data
         public HumContext(DbContextOptions<HumContext> options) : base(options)
         {
         }
+
         public DbSet<Containers> Container { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<NonActiveContainers> NonActiveContainers { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Containers>().ToTable("Container");
+            modelBuilder.Entity<Category>().ToTable("Category"); // Змінено назву таблиці тут
+            modelBuilder.Entity<NonActiveContainers>().ToTable("NonActiveContainers");
         }
     }
 }

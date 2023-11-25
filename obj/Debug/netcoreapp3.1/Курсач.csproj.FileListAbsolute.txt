@@ -9,7 +9,6 @@ D:\хну\курсач\Курсач\bin\Debug\netcoreapp3.1\Курсач.dll
 D:\хну\курсач\Курсач\bin\Debug\netcoreapp3.1\Курсач.pdb
 D:\хну\курсач\Курсач\bin\Debug\netcoreapp3.1\Курсач.Views.dll
 D:\хну\курсач\Курсач\bin\Debug\netcoreapp3.1\Курсач.Views.pdb
-D:\хну\курсач\Курсач\obj\Debug\netcoreapp3.1\Курсач.csprojAssemblyReference.cache
 D:\хну\курсач\Курсач\obj\Debug\netcoreapp3.1\Курсач.RazorAssemblyInfo.cache
 D:\хну\курсач\Курсач\obj\Debug\netcoreapp3.1\Курсач.RazorAssemblyInfo.cs
 D:\хну\курсач\Курсач\obj\Debug\netcoreapp3.1\Курсач.AssemblyInfoInputs.cache
@@ -184,3 +183,9 @@ D:\хну\курсач\Курсач\obj\Debug\netcoreapp3.1\Razor\Views\Containe
 D:\хну\курсач\Курсач\obj\Debug\netcoreapp3.1\Razor\Views\Containers\Details.cshtml.g.cs
 D:\хну\курсач\Курсач\obj\Debug\netcoreapp3.1\Razor\Views\Containers\Edit.cshtml.g.cs
 D:\хну\курсач\Курсач\obj\Debug\netcoreapp3.1\Razor\Views\Containers\Index.cshtml.g.cs
+D:\хну\курсач\Курсач\obj\Debug\netcoreapp3.1\Razor\Views\NonActiveContainers\Create.cshtml.g.cs
+D:\хну\курсач\Курсач\obj\Debug\netcoreapp3.1\Razor\Views\NonActiveContainers\Delete.cshtml.g.cs
+D:\хну\курсач\Курсач\obj\Debug\netcoreapp3.1\Razor\Views\NonActiveContainers\Details.cshtml.g.cs
+D:\хну\курсач\Курсач\obj\Debug\netcoreapp3.1\Razor\Views\NonActiveContainers\Edit.cshtml.g.cs
+D:\хну\курсач\Курсач\obj\Debug\netcoreapp3.1\Razor\Views\NonActiveContainers\Index.cshtml.g.cs
+D:\хну\курсач\Курсач\obj\Debug\netcoreapp3.1\Курсач.csprojAssemblyReference.cache

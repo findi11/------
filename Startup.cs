@@ -56,13 +56,20 @@ namespace Курсач
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-                     endpoints.MapControllerRoute(
-                     name: "container",
-                     pattern: "all-container",
-                        defaults: new { controller = "Containers", action = "Index" }
-                        
-                       
-                        );
+                endpoints.MapControllerRoute(
+                    name: "Container",
+                    pattern: "all-container",
+                    defaults: new { controller = "Containers", action = "Index" });
+
+                endpoints.MapControllerRoute(
+                    name: "NonActiveContainersCreate",
+                    pattern: "start-container",
+                    defaults: new { controller = "NonActiveContainers", action = "Create" });
+
+                endpoints.MapControllerRoute(
+                    name: "NonActiveContainersIndex",
+                    pattern: "all-start-container",
+                    defaults: new { controller = "NonActiveContainers", action = "Index" });
             });
         }
     }

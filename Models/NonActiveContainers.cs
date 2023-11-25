@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Курсач.Models
 {
-    public class Containers
+    public class NonActiveContainers
     {
         public int ID { get; set; }
         public string container { get; set; }
@@ -14,6 +14,7 @@ namespace Курсач.Models
         public DateTime DataEnd { get; set; }
         public int currentProgres { get; set; }
         public int endProgres { get; set; }
-
+        public DateTime DataAdd { get; set; }
+     
     }
 }
