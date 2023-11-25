@@ -8,7 +8,7 @@ namespace Курсач.Models
     public class Containers
     {
         public int ID { get; set; }
-        public string Type { get; set; }
+        public string container { get; set; }
         public int PersonId { get; set; }
         public DateTime DataStart { get; set; }
         public DateTime DataEnd { get; set; }

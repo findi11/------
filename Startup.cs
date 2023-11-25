@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Курсач.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Курсач
 {
@@ -23,6 +25,8 @@ namespace Курсач
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<HumContext>(options =>
+               options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
         }
 
@@ -51,6 +55,14 @@ namespace Курсач
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                     endpoints.MapControllerRoute(
+                     name: "container",
+                     pattern: "all-container",
+                        defaults: new { controller = "Containers", action = "Index" }
+                        
+                       
+                        );
             });
         }
     }

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Курсач.Models.Containers>
+
+
+<div class="all-container">
+    <div class="app-container">
+        @foreach (var item in Model)
+        {
+            <div class="flex-item">
+                <div>ID: @item.ID</div>
+                <div>Тип: @item.container</div>
+                <div>Зібрано/Залишилося зібрати: @item.currentProgres / @item.endProgres</div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .all-container {
+        margin-top: 90px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .flex-item {
+        flex: 0 0 calc(25% - 10px);
+        margin: 5px;
+        border: 1px solid #ccc;
+        padding: 10px;
+    }
+</style>
