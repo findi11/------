@@ -56,4 +56,11 @@ blockquote, q {
     quotes: "" "";
 }
 
-Джерело: https://wpfan.com.ua/css-reset-skydajemo-css-styli/
+.top-container {
+    margin-left:20px;
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+

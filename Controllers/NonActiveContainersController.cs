@@ -44,24 +44,47 @@ namespace Курсач.Controllers
         }
 
         // GET: NonActiveContainers/Create
+        // GET: NonActiveContainers/Create
         public IActionResult Create()
         {
+            // Отримати список категорій з бази даних
+            var categories = _context.Categories.ToList();
+
+            // Передати список категорій у представлення
+            ViewBag.Categories = new SelectList(categories, "ID", "Title");
+
             return View();
         }
 
         // POST: NonActiveContainers/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,container,PersonId,DataStart,DataEnd,currentProgres,endProgres,DataAdd")] NonActiveContainers nonActiveContainers)
+        public async Task<IActionResult> Create([Bind("ID,PersonId,DataStart,DataEnd,currentProgres,endProgres,DataAdd,Title")] NonActiveContainers nonActiveContainers)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(nonActiveContainers);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                // Отримати категорію за її ID
+                var category = _context.Categories.FirstOrDefault(c => c.ID == nonActiveContainers.CategoryID);
+
+                if (category != null)
+                {
+                    // Встановити поле Title для NonActiveContainers з категорії
+                    nonActiveContainers.Title = category.Title;
+
+                    _context.Add(nonActiveContainers);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    // Обробка ситуації, коли категорія не знайдена
+                    ModelState.AddModelError("CategoryId", "Invalid category selection");
+                }
             }
+
+            // Якщо є помилки валидації, передайте їх разом із списком категорій у представлення
+            var categories = _context.Categories.ToList();
+            ViewBag.Categories = new SelectList(categories, "ID", "Title");
             return View(nonActiveContainers);
         }
 

@@ -22,6 +22,11 @@ namespace Курсач.Data
             modelBuilder.Entity<Containers>().ToTable("Container");
             modelBuilder.Entity<Category>().ToTable("Category"); // Змінено назву таблиці тут
             modelBuilder.Entity<NonActiveContainers>().ToTable("NonActiveContainers");
+
+            modelBuilder.Entity<NonActiveContainers>()
+          .HasOne(c => c.Category)
+          .WithMany(cat => cat.Containers)
+          .HasForeignKey(c => c.CategoryID);
         }
     }
 }
