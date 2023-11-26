@@ -43,18 +43,38 @@
                         <span asp-validation-for="endProgres" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="DataAdd" class="control-label"></label>
-                        <input asp-for="DataAdd" class="form-control" />
-                        <span asp-validation-for="DataAdd" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-primary" />
+                        <input type="submit" value="Запропонувати даний збір" class="btn btn-primary" />
                     </div>
                 </form>
             </div>
         </div>
-        </div>
-        </div>
-        @section Scripts {
-            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-        }
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<style>
+ 
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+    .text-danger {
+        color: #dc3545;
+    }
+
+   
+
+</style>

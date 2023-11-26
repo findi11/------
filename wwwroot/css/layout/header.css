@@ -1,12 +1,11 @@
 ﻿.header {
-    top:0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 80px;
     width: 100%;
-    position: fixed;
     background: #2596be;
+    position:relative;
 }
 
 .nav {

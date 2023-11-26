@@ -59,7 +59,7 @@ namespace Курсач.Controllers
         // POST: NonActiveContainers/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,PersonId,DataStart,DataEnd,currentProgres,endProgres,DataAdd,Title")] NonActiveContainers nonActiveContainers)
+        public async Task<IActionResult> Create([Bind("ID,PersonId,DataStart,DataEnd,currentProgres,endProgres,Title,DataAdd")] NonActiveContainers nonActiveContainers)
         {
             if (ModelState.IsValid)
             {
@@ -68,8 +68,8 @@ namespace Курсач.Controllers
 
                 if (category != null)
                 {
-                    // Встановити поле Title для NonActiveContainers з категорії
                     nonActiveContainers.Title = category.Title;
+                    nonActiveContainers.DataAdd = DateTime.Now;
 
                     _context.Add(nonActiveContainers);
                     await _context.SaveChangesAsync();
@@ -77,12 +77,10 @@ namespace Курсач.Controllers
                 }
                 else
                 {
-                    // Обробка ситуації, коли категорія не знайдена
-                    ModelState.AddModelError("CategoryId", "Invalid category selection");
+                    ModelState.AddModelError("CategoryId", "Категорію не знайдено");
                 }
             }
 
-            // Якщо є помилки валидації, передайте їх разом із списком категорій у представлення
             var categories = _context.Categories.ToList();
             ViewBag.Categories = new SelectList(categories, "ID", "Title");
             return View(nonActiveContainers);

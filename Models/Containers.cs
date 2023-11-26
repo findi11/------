@@ -16,5 +16,6 @@ namespace Курсач.Models
         public int endProgres { get; set; }
 
 
+
     }
 }
