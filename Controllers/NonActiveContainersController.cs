@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -47,14 +48,25 @@ namespace Курсач.Controllers
         // GET: NonActiveContainers/Create
         public IActionResult Create()
         {
-            // Отримати список категорій з бази даних
-            var categories = _context.Categories.ToList();
+            var isAuthenticatedCookie = HttpContext.Request.Cookies["IsAuthenticated"];
 
-            // Передати список категорій у представлення
-            ViewBag.Categories = new SelectList(categories, "ID", "Title");
+            if (User.Identity.IsAuthenticated || (isAuthenticatedCookie != null && isAuthenticatedCookie.ToLower() == "true"))
+            {
+                // Логіка для аутентифікованого користувача
+                var categories = _context.Categories.ToList();
 
-            return View();
+                // Передати список категорій у представлення
+                ViewBag.Categories = new SelectList(categories, "ID", "Title");
+
+                return View();
+            }
+            else
+            {
+                // Логіка для неаутентифікованого користувача
+                return RedirectToAction("Login", "Users");
+            }
         }
+
 
         // POST: NonActiveContainers/Create
         [HttpPost]

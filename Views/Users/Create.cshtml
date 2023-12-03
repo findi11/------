@@ -1,0 +1,56 @@
+﻿@model Курсач.Models.User
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Реєстрація</h2>
+
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="form-group">
+                            <label asp-for="name" class="form-label">Ім'я</label>
+                            <input asp-for="name" class="form-control" />
+                            <span asp-validation-for="name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="surname" class="form-label">Прізвище</label>
+                            <input asp-for="surname" class="form-control" />
+                            <span asp-validation-for="surname" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="email" class="form-label">Email</label>
+                            <input asp-for="email" class="form-control" />
+                            <span asp-validation-for="email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="age" class="form-label">Вік</label>
+                            <input asp-for="age" class="form-control" />
+                            <span asp-validation-for="age" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="password" class="form-label">Пароль</label>
+                            <input asp-for="password" type="password" class="form-control" />
+                            <span asp-validation-for="password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary btn-block">Створити акаунт</button>
+                        </div>
+                    </form>
+
+                    <p class="text-center">Вже зареєстровані? <a href="/login">Вхід в акаунт</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
