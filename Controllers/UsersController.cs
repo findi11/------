@@ -64,7 +64,7 @@ namespace Курсач.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(Users);
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: Userss/Edit/5
@@ -171,6 +171,10 @@ namespace Курсач.Controllers
             if (user == null || !string.Equals(user.password, password))
             {
                 // Неправильний email або пароль
+
+
+
+
                 return Unauthorized("Invalid email or password.");
             }
 
@@ -179,6 +183,11 @@ namespace Курсач.Controllers
                 // Успішна аутентифікація - записуємо email у куки та встановлюємо прапорець у true
                 Response.Cookies.Append("UserEmail", email);
                 Response.Cookies.Append("IsAuthenticated", "true");
+                if (user.role == 1)
+                {
+                    // Якщо роль = 1, то записуємо IsAdmin = true у локальне сховище (local storage)
+                    Response.Cookies.Append("IsAdmin", "true");
+                }
             }
 
             return RedirectToAction("Index", "Home");
@@ -192,6 +201,7 @@ namespace Курсач.Controllers
             // Видалення кукі при виході
             Response.Cookies.Delete("UserEmail");
             Response.Cookies.Delete("IsAuthenticated");
+            Response.Cookies.Delete("IsAdmin");
 
             return RedirectToAction("Index", "Home");
         }

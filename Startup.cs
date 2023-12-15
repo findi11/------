@@ -108,9 +108,22 @@ namespace Курсач
                    name: "UserLogout",
                    pattern: "logout",
                    defaults: new { controller = "Users", action = "Logout" });
-
-
-
+                endpoints.MapControllerRoute(
+                  name: "AllContainer",
+                  pattern: "all-container_admin",
+                  defaults: new { controller = "Containers", action = "Index" });
+                endpoints.MapControllerRoute(
+                 name: "AllNews",
+                 pattern: "all-news_admin",
+                 defaults: new { controller = "News", action = "Index" });
+                endpoints.MapControllerRoute(
+                name: "AllUsers",
+                pattern: "all-users_admin",
+                defaults: new { controller = "Users", action = "Index" });
+                endpoints.MapControllerRoute(
+               name: "AllNonAc",
+               pattern: "all-noncontainer_admin",
+               defaults: new { controller = "NonActiveContainers", action = "Index" });
             });
             //app.UseRequestLocalization(new RequestLocalizationOptions
             //{
