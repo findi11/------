@@ -71,31 +71,20 @@ namespace Курсач.Controllers
         // POST: NonActiveContainers/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,PersonId,DataStart,DataEnd,currentProgres,endProgres,Title,DataAdd")] NonActiveContainers nonActiveContainers)
+        public async Task<IActionResult> Create([Bind("ID,PersonId,DataStart,DataEnd,currentProgres,endProgres,CategoryID,DataAdd")] NonActiveContainers nonActiveContainers)
         {
             if (ModelState.IsValid)
             {
-                // Отримати категорію за її ID
-                var category = _context.Categories.FirstOrDefault(c => c.ID == nonActiveContainers.CategoryID);
-
-                if (category != null)
-                {
-                    nonActiveContainers.Title = category.Title;
-                    nonActiveContainers.DataAdd = DateTime.Now;
-
-                    _context.Add(nonActiveContainers);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
-                }
-                else
-                {
-                    ModelState.AddModelError("CategoryId", "Категорію не знайдено");
-                }
+                nonActiveContainers.DataAdd = DateTime.Now;
+                _context.Add(nonActiveContainers);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
             }
 
             var categories = _context.Categories.ToList();
             ViewBag.Categories = new SelectList(categories, "ID", "Title");
-            return View(nonActiveContainers);
+            return RedirectToAction("Index", "Home");
+
         }
 
         // GET: NonActiveContainers/Edit/5

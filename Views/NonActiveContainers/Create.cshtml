@@ -5,18 +5,19 @@
 }
 <div class="app-container">
     <div class="top-container">
-           <div class="card">
+        <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Створити новий запис</h5>
+                <h5 class="card-title">Create a New Record</h5>
                 <form asp-action="Create">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
-                        <label asp-for="Title" class="control-label"></label>
-                        <select asp-for="Title" asp-items="@ViewBag.Categories" class="form-control">
-                            <option value="">Оберіть категорію</option>
+                        <label asp-for="CategoryID" class="control-label"></label>
+                        <select asp-for="CategoryID" asp-items="@ViewBag.Categories" class="form-control">
+                            <option value="">Choose a category</option>
                         </select>
-                        <span asp-validation-for="Title" class="text-danger"></span>
+                        <span asp-validation-for="CategoryID" class="text-danger"></span>
                     </div>
+
 
                     <div class="form-group">
                         <label asp-for="PersonId" class="control-label"></label>
@@ -44,13 +45,11 @@
                         <span asp-validation-for="endProgres" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Запропонувати даний збір" class="btn btn-primary" />
+                        <input type="submit" value="Propose this Collection" class="btn btn-primary" />
                     </div>
                 </form>
             </div>
         </div>
-        </div>
-    </div>
     </div>
 </div>
 @section Scripts {
@@ -58,7 +57,6 @@
 }
 
 <style>
- 
 
     .form-group {
         margin-bottom: 15px;
@@ -69,15 +67,12 @@
         border-color: #007bff;
     }
 
-    .btn-primary:hover {
-        background-color: #0056b3;
-        border-color: #0056b3;
-    }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
 
     .text-danger {
         color: #dc3545;
     }
-
-   
-
 </style>

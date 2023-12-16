@@ -4,51 +4,101 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1 class="display-4 mb-4 text-center">
+    Details - @DateTime.Now.ToString("MMMM dd, yyyy")
+</h1>
 
-<div>
-    <h4>Containers</h4>
+<div class="container mt-4">
+    <h4 class="mb-4 text-center">Container Information</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.container)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.container)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PersonId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PersonId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataStart)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataStart)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataEnd)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataEnd)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.currentProgres)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.currentProgres)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.endProgres)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.endProgres)
-        </dd>
+
+    <dl class="row fs-5">
+        <dt class="col-sm-2">Container</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.container)</dd>
+
+        <dt class="col-sm-2">Person ID</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.PersonId)</dd>
+
+        <dt class="col-sm-2">Start Date</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.DataStart)</dd>
+
+        <dt class="col-sm-2">End Date</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.DataEnd)</dd>
+
+        <dt class="col-sm-2">Current Progress</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.currentProgres)</dd>
+
+        <dt class="col-sm-2">End Progress</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.endProgres)</dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<div class="container mt-4">
+    <div class="row text-center">
+        @{
+            var isAdminCookie1 = Context.Request.Cookies["IsAdmin"];
+            var showElement11 = User.Identity.IsAuthenticated || (isAdminCookie1 != null && isAdminCookie1.ToLower() == "true");
+        }
+        @if (showElement11)
+        {
+            <div class="col-md-6">
+                <a class="btn btn-primary fs-5" asp-action="Edit" asp-route-id="@Model.ID">Edit</a>
+            </div>
+        }
+        <div class="col-md-6">
+            <a class="btn btn-secondary fs-5" asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="mb-4" style="margin-top: 40px; margin-bottom: 40px;">
+        <p>
+            We believe that every contribution matters. Your support helps us make a difference in the lives of those in need. Join us in our mission to create a positive impact in the world.
+        </p>
+        <p>
+            Your donations are crucial for our projects. Every penny brings us closer to our goals and helps us make the world a better place.
+        </p>
+        <br />
+        <br />
+        <p>
+            Together, we can achieve more. Thank you for being a part of our journey and for making a difference in the lives of others.
+        </p>
+        <p>
+            Your generosity makes the world a brighter place. Join us, and let's create a better future together.
+        </p>
+        <br />
+        <br />
+        <p>
+            Together, we can build a world where everyone has the opportunity to thrive. Your support makes it possible.
+        </p>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <iframe width="100%" height="500px" src="https://www.youtube.com/embed/beMHj0b-UoA?si=MWXQGyZfkJcoUUOn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
+    <div class="mt-4" style="margin-top: 40px; margin-bottom: 40px;">
+        <p>
+            We understand that the journey is not easy, but we are committed to fighting for you. Your strength and resilience inspire us every day, and we will stand by you through thick and thin.
+        </p>
+        <br />
+        <br />
+        <p>
+            Life may present challenges, but together, we can overcome them. Your courage fuels our determination, and we will continue to support you on this journey.
+        </p>
+        <br />
+        <br />
+        <p>
+            In the face of adversity, we find strength in unity. Your trust empowers us to keep pushing forward, and we are grateful to have you as part of our community.
+        </p>
+        <p>
+            Together, we can overcome any obstacle. Your journey is our journey, and we are here to support you every step of the way.
+        </p>
+        <br />
+        <br />
+        <p>
+            Life's battles are tough, but with your resilience and our collective effort, we will emerge stronger. We believe in you, and together, we will face whatever comes our way.
+        </p>
+    </div>
 </div>
