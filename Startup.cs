@@ -124,6 +124,10 @@ namespace Курсач
                name: "AllNonAc",
                pattern: "all-noncontainer_admin",
                defaults: new { controller = "NonActiveContainers", action = "Index" });
+                endpoints.MapControllerRoute(
+              name: "Contact",
+              pattern: "Contacts",
+              defaults: new { controller = "Home", action = "Contacts" });
             });
             //app.UseRequestLocalization(new RequestLocalizationOptions
             //{

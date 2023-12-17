@@ -1,5 +1,11 @@
 ﻿@import 'layout/header.css';
 
+h1{
+    font-size:30px;
+    font-family:'Times New Roman', Times, serif;
+}
+
+
 
 .app-container{
     max-width:1440px;

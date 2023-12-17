@@ -207,3 +207,4 @@ D:\хну\курсач\Курсач\obj\Debug\netcoreapp3.1\Razor\Views\Users\Ed
 D:\хну\курсач\Курсач\obj\Debug\netcoreapp3.1\Razor\Views\Users\Index.cshtml.g.cs
 D:\хну\курсач\Курсач\obj\Debug\netcoreapp3.1\Razor\Views\Users\Login.cshtml.g.cs
 D:\хну\курсач\Курсач\obj\Debug\netcoreapp3.1\Курсач.csprojAssemblyReference.cache
+D:\хну\курсач\Курсач\obj\Debug\netcoreapp3.1\Razor\Views\Home\Contacts.cshtml.g.cs

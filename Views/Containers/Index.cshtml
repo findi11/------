@@ -1,20 +1,22 @@
 ﻿@model IEnumerable<Курсач.Models.Containers>
 
-<div class="all-container">
-    <div class="app-container">
-        @foreach (var item in Model)
-        {
-            <div class="flex-item">
-                <div class="card-content">
-                    <div class="card-title">ID: @item.ID</div>
-                    <div class="card-type">Type: @item.container</div>
-                    <div class="progress-info">Collected: @item.currentProgres <br />Remaining: @item.endProgres - @item.currentProgres</div>
+    <div class="all-container">
+        <h1 class="text-center m-4" style="font-size:30px">All harvest</h1>
+
+        <div class="app-container">
+            @foreach (var item in Model)
+            {
+                <div class="flex-item">
+                    <div class="card-content">
+                        <div class="card-title">ID: @item.ID</div>
+                        <div class="card-type">Type: @item.container</div>
+                        <div class="progress-info">Collected: @item.currentProgres <br />Remaining: @item.endProgres - @item.currentProgres</div>
+                    </div>
+                    <a href="@Url.Action("Details", "Containers", new { id = item.ID })" class="details-link">Details</a>
                 </div>
-                <a href="@Url.Action("Details", "Containers", new { id = item.ID })" class="details-link">Details</a>
-            </div>
-        }
+            }
+        </div>
     </div>
-</div>
 
 <style>
     .all-container {
