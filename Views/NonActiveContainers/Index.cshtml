@@ -13,7 +13,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Title)
+                @Html.DisplayNameFor(model => model.CategoryID)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.PersonId)
@@ -39,34 +39,34 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PersonId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataStart)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataEnd)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.currentProgres)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.endProgres)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataAdd)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-warning">Редагувати</a> |
-                    <a asp-action="Details" asp-route-id="@item.ID" class="btn btn-info">Деталі</a> |
-                    <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Видалити</a>
-                </td>
-            </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryID)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataStart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.currentProgres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.endProgres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataAdd)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-warning">Редагувати</a> |
+                <a asp-action="Details" asp-route-id="@item.ID" class="btn btn-info">Деталі</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Видалити</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

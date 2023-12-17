@@ -57,5 +57,8 @@
     <div class="text-center mt-3">
         <a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-primary">Редагувати</a> |
         <a asp-action="Index" class="btn btn-secondary">Повернутися до списку</a>
+        <a asp-controller="NonActiveContainers" asp-action="TransferData" asp-route-nonActiveContainerId="@Model.ID" class="btn btn-success">Accept containers</a>
+
+
     </div>
 </div>

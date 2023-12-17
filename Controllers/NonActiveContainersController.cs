@@ -76,6 +76,13 @@ namespace Курсач.Controllers
             if (ModelState.IsValid)
             {
                 nonActiveContainers.DataAdd = DateTime.Now;
+
+                // Fetch the corresponding category based on CategoryID
+                var selectedCategory = _context.Categories.FirstOrDefault(c => c.ID == nonActiveContainers.CategoryID);
+
+                // Set the Title property in your model
+                nonActiveContainers.Title = selectedCategory?.Title;
+
                 _context.Add(nonActiveContainers);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -84,7 +91,6 @@ namespace Курсач.Controllers
             var categories = _context.Categories.ToList();
             ViewBag.Categories = new SelectList(categories, "ID", "Title");
             return RedirectToAction("Index", "Home");
-
         }
 
         // GET: NonActiveContainers/Edit/5
@@ -170,6 +176,39 @@ namespace Курсач.Controllers
         private bool NonActiveContainersExists(int id)
         {
             return _context.NonActiveContainers.Any(e => e.ID == id);
+        }
+        [HttpGet]
+        public IActionResult TransferData(int nonActiveContainerId) { 
+            // Find the NonActiveContainer by ID
+            var nonActiveContainer = _context.NonActiveContainers
+                .FirstOrDefault(c => c.ID == nonActiveContainerId);
+
+            if (nonActiveContainer != null)
+            {
+                // Create a new Containers object and copy data
+                var container = new Containers
+                {
+                    container = nonActiveContainer.Title,
+                    PersonId = nonActiveContainer.PersonId,
+                    DataStart = nonActiveContainer.DataStart,
+                    DataEnd = nonActiveContainer.DataEnd,
+                    currentProgres = nonActiveContainer.currentProgres,
+                    endProgres = nonActiveContainer.endProgres
+                    // You may need to map other properties based on your requirements
+                };
+
+                // Add the new container to the Containers table
+                _context.Container.Add(container);
+
+                // Remove the non-active container from the NonActiveContainers table
+                _context.NonActiveContainers.Remove(nonActiveContainer);
+
+                // Save changes to the database
+                _context.SaveChanges();
+            }
+
+            // Redirect to the view or action you want
+            return RedirectToAction("Index", "Home");
         }
     }
 }
